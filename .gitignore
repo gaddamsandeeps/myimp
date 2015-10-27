@@ -1,0 +1,12 @@
+/platform-web/node_modules
+/platform-web/npm-debug.log
+/npm-debug.log
+/API/node_modules
+/API/npm-debug.log
+
+/docs/api-editor/bower_components
+/docs/api-editor/node_modules
+/docs/api-editor/npm-debug.log
+
+
+/platform-web/.sass-cache

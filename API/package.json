@@ -1,0 +1,25 @@
+{
+    "name": "API",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Interactive Platform API Project",
+    "keywords": [],
+    "author": {
+        "name": "Sandeep Gaddam",
+        "email": "sgaddam@nisum.com"
+    },
+    "license": "ISC",
+    "main": "app.js",
+    "scripts": {
+        "start": "swagger project start",
+        "test": "swagger project test"
+    },
+    "dependencies": {
+        "express": "^4.12.3",
+        "swagger-express-mw": "0.0.x"
+    },
+    "devDependencies": {
+        "should": "^5.2.0",
+        "supertest": "^0.15.0"
+    }
+}

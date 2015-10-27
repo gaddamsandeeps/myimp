@@ -1,0 +1,403 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Campaign API
+# during dev, should point to your local machine
+host: localhost:8080
+# basePath prefixes all resource paths 
+basePath: /api/v1
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /campaign/{campaignId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: campaign
+    get:
+      description: Returns 'JSON related to campaign' to the caller
+      # used as the method name of the controller
+      operationId: campaign
+      parameters:
+        - name: campaignId
+          in: path
+          description: Get the result related to campaign based on id passed as path parameter
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/Campaign"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /social/entry/getSimplePoolEntries:
+    # binds a127 app logic to a route
+    x-swagger-router-controller:      campaign
+    get:
+      description:                    Returns 'JSON related to campaign' to the caller
+      # used as the method name of the controller
+      operationId:                    campaign
+      parameters:
+        - name:                       campaignId
+          in:                         query
+          description:                Get the result related to campaign based on id passed as path parameter
+          required:                   true
+          type:                       string
+        - name:                       offset
+          in:                         query
+          description:                Specify the start index
+          required:                   true
+          type:                       integer
+          #format:                    int32
+        - name:                       limit
+          in:                         query
+          description:                Specify the number of entries to be obtained
+          required:                   true
+          type:                       integer
+          #format:                    int32
+        - name:                       poolName
+          in:                         query
+          description:                Get specific campaign details
+          required:                   true
+          type:                       string
+        - name:                       statsDuration
+          in:                         query
+          description:                Get specific campaign details
+          required:                   false
+          type:                       number
+          format:                     double
+        - name:                       topLiked
+          in:                         query
+          description:                Get specific campaign details
+          required:                   false
+          type:                       boolean
+          #format:                    int32
+        - name:                       stats
+          in:                         query
+          description:                Get specific campaign details
+          required:                   false
+          type:                       boolean
+          #format:                    int32
+      responses:
+        "200":
+          description:                Success
+          schema:
+            # a pointer to a definition
+            $ref:                     "#/definitions/Entries"
+        # responses may fall through to errors
+        default:
+          description:                Error
+          schema:
+            $ref:                     "#/definitions/ErrorResponse"
+# complex objects have schema definitions
+definitions:
+  Campaign:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  Properties:
+    properties:
+      pfeed_color:
+        type:                             string
+        #description:
+      pfeed_brand_calphalon:
+        type:                             string
+        #description:
+      pfeed_trend_1:
+        type:                             string
+        #description:
+      pfeed_cwset:
+        type:                             string
+        #description:
+      pfeed_colorsizeex:
+        type:                             string
+        #description:
+      pfeed_brand_lecreuset:
+        type:                             string
+        #description:
+      pfeed_altimagedescriptions:
+        type:                             string
+        #description:
+      pfeed_cookware_size:
+        type:                             string
+        #description:
+      pfeed_colorimage:
+        type:                             string
+        #description:
+      pfeed_retailprice:
+        type:                             string
+        #description:
+      pfeed_shortdescription:
+        type:                             string
+        #description:
+      pfeed_cookware_care:
+        type:                             string
+        #description:
+      pfeed_cwfinder:
+        type:                             string
+        #description:
+      pfeed_promotions:
+        type:                             string
+        #description:
+      pfeed_pricetype:
+        type:                             string
+        #description:
+      pfeed_brand_cuisinart:
+        type:                             string
+        #description:
+      pfeed_cookware_component:
+        type:                             string
+        #description:
+      pfeed_id:
+        type:                             integer
+        format:                           int32
+        #description:
+      pfeed_availability:
+        type:                             boolean
+        #description:
+      pfeed_bullettext:
+        type:                             string
+        #description:
+      pfeed_producttype:
+        type:                             string
+        #description:
+      pfeed_bvavgrating:
+        type:                             string
+        #description:
+      pfeed_colorsize:
+        type:                             string
+        #description:
+      pfeed_storeavailability:
+        type:                             boolean
+        #description:
+      pfeed_promogroupname:
+        type:                             string
+        #description:
+      pfeed_url:
+        type:                             string
+        #description:
+      pfeed_brand_emerilware:
+        type:                             string
+        #description:
+      pfeed_secondarycategory:
+        type:                             string
+        #description:
+      pfeed_brand_anolon:
+        type:                             string
+        #description:
+      pfeed_promoinfo:
+        type:                             string
+        #description:
+      pfeed_colorsizeexskuid:
+        type:                             string
+        #description:
+      pfeed_promogroup:
+        type:                             string
+        #description:
+      pfeed_imagedesc:
+        type:                             string
+        #description:
+      pfeed_brand_clad:
+        type:                             string
+        #description:
+      pfeed_cookware_material:
+        type:                             string
+        #description:
+      pfeed_brand:
+        type:                             string
+        #description:
+      pfeed_onhand:
+        type:                             integer
+        format:                           int32
+        #description:
+      pfeed_subproductids:
+        type:                             string
+        #description:
+      pfeed_price3:
+        type:                             string
+        #description:
+      pfeed_brand_tools_trade:
+        type:                             string
+        #description:
+      pfeed_bizcategory:
+        type:                             string
+        #description:
+      pfeed_price2:
+        type:                             string
+        #description:
+      pfeed_longdescription:
+        type:                             string
+        #description:
+      pfeed_newarrival:
+        type:                             boolean
+        #description:
+      pfeed_price1:
+        type:                             string
+        #description:
+      pfeed_shippingreturns:
+        type:                             string
+        #description:
+      pfeed_saleprice:
+        type:                             string
+        #description:
+      pfeed_cwcollection:
+        type:                             string
+        #description:
+      pfeed_salestartdate:
+        type:                             string
+        #description:
+      pfeed_altimages:
+        type:                             string
+        #description:
+      pfeed_priceforfilters:
+        type:                             string
+        #description:
+      pfeed_giftsetvalue:
+        type:                             string
+        #description:
+      pfeed_sizes:
+        type:                             string
+        #description:
+      pfeed_homecatid:
+        type:                             integer
+        format:                           int32
+        #description:
+      pfeed_cwtype:
+        type:                             string
+        #description:
+      pfeed_brand_kitchenaid:
+        type:                             string
+        #description:
+      pfeed_ckmaterial:
+        type:                             string
+        #description:
+      pfeed_cwcare:
+        type:                             string
+        #description:
+      pfeed_brand_circulon:
+        type:                             string
+        #description:
+      pfeed_cwmaterial:
+        type:                             string
+        #description:
+      pfeed_imageurl:
+        type:                             string
+        #description:
+      pfeed_saleenddate:
+        type:                             string
+        #description:
+      pfeed_colorsizeexupc:
+        type:                             string
+        #description:
+      pfeed_cwallproducts:
+        type:                             string
+        #description:
+      pfeed_pricetypeid:
+        type:                             integer
+        format:                           int32
+        #description:
+      pfeed_category:
+        type:                             string
+        #description:
+      pfeed_bvtoprated:
+        type:                             boolean
+        #description:
+      pfeed_bvnumreviews:
+        type:                             integer
+        format:                            int32
+        #description:
+      pfeed_brand_marthastewart:
+        type:                             string
+        #description:
+      pfeed_name:
+        type:                             string
+        #description:
+  Entries:                              
+   properties:
+    entryId:
+     type:                              integer
+     format:                            int64
+     #description:                      
+    campaignId:
+     type:                              integer
+     format:                            int32
+     #description:
+    userId:
+     type:                              integer
+     format:                            int32
+     #description:
+    createdTime:
+     type:                              integer
+     format:                            int64
+     #description:
+    mediaType:
+     type:                              integer
+     format:                            int32
+     #description:
+    feedItemId:
+     type:                              string
+     #description:
+    fileUrl:
+     type:                              string
+     #description:
+    itemUrl:
+     type:                              string
+     #description:
+    title:
+     type:                              string
+     #description:
+    comment:
+     type:                              string
+     #description:
+    startTime:
+     type:                              string
+     format:                            date-time
+     #description
+    endTime:
+     type:                              string
+     format:                            date-time
+     #description:
+    properties:
+      type: array
+      items:
+        $ref: '#/definitions/Properties'
+    ugc:
+      type: boolean
+      #description:
+    campaignProperties:
+      type: string
+      # description:
+    upcProperties:
+      type: string
+      #description:
+    entryStats:
+      type: string
+      #description:
+    totalEntries: 
+      type: integer
+    poolName:
+      type: string
+      #description:
+    formattedEntryProps:
+      type: string
+      #description

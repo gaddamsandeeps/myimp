@@ -1,1 +1,2 @@
-# myimp
+# IMP
+The Interactive Marketing Platform’s goal is to develop a services platform  used by marketers to design multichannel marketing campaigns and track the  effect of those campaigns over time, by customer segment and channels.   To help our clients uniquely position to manage the mobile experiences of  their customers, increase revenues through higher conversion rates, and  ultimately deliver a delightful and engaging shopping experience.

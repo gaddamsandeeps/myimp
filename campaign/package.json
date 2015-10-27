@@ -1,0 +1,24 @@
+{
+    "name": "campaign",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Campaign Management",
+    "main": "./lib/campaign",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:nisum-inc/IMP/campaign.git"
+    },
+    "author": {
+        "name": "Sandeep Gaddam",
+        "email": "sgaddam@nisum.com"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nisum-inc/IMP/campaign/issues"
+    },
+    "homepage": "https://github.com/nisum-inc/IMP/campaign/",
+    "dependencies": {}
+}
